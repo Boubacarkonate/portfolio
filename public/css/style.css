@@ -1,0 +1,657 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+
+:root {
+  --background-color: #ececec;
+  --text-color: black;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+h2{
+  padding-bottom: 2%;
+}
+
+p {
+  line-height: 25px;
+  font-size: 20px;
+  text-align: justify;
+  font-weight: 300;
+}
+
+/******************************************************
+                NAVBAR
+*******************************************************/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  font-weight: 500;
+}
+
+nav li {
+  position: relative;
+  margin-left: 30px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+nav li span {
+  position: absolute;
+  top: -5px;
+  right: -28px;
+}
+
+/******************************************************
+               HEADER
+*******************************************************/
+
+header {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8%;
+}
+
+header .header-left {
+  flex: 6;
+  margin-right: 50px;
+}
+
+header .header-left small {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+header .header-left h1 {
+  font-size: 50px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+header .header-left p{
+  font-weight: 500;
+}
+
+header .header-left .links {
+  margin-top: 80px;
+}
+
+header .header-left .links a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  margin-right: 40px;
+  font-weight: bold;
+}
+
+header .header-left .links a span {
+  position: absolute;
+  top: -5px;
+  right: -28px;
+}
+
+header .header-right img {
+  width: 80%;
+  border-radius: 50%;
+}
+
+/******************************************************
+                SECTION : ABOUT
+*******************************************************/
+
+.about {
+  padding: 1%;
+  margin-bottom: 10%;
+  border-radius: 8px;
+  color: black;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.about p {
+  line-height: 30px;
+}
+
+/******************************************************
+                SECTION : MYSKILLS & CV
+*******************************************************/
+.flexbox-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#mySkills {
+  width: 45%;
+  border-radius: 8px;
+  margin-bottom: 10%;
+  padding: 20px;
+  color: black;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  
+}
+
+#mySkills li {
+  margin: 20px 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.bar {
+  background-color: #353b48;
+  display: block;
+  height: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.bar:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.bar span {
+  height: 20px;
+  float: left;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 17%, rgba(47, 82, 218, 1) 100%);
+}
+
+.html {
+  width: 90%;
+  animation: html 3s;
+}
+
+.css {
+  width: 80%;
+  animation: css 3s;
+}
+
+.js {
+  width: 60%;
+  animation: js 3s;
+}
+
+.php {
+  width: 70%;
+  animation: php 3s;
+}
+
+.sql {
+  width: 70%;
+  animation: sql 3s;
+}
+
+.react {
+  width: 70%;
+  animation: sql 3s;
+}
+
+.symfony {
+  width: 70%;
+  animation: sql 3s;
+}
+
+.images {
+  margin-top: 60px;
+  display: flex;
+}
+
+/***************animation*****************/
+
+@keyframes html {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 90%;
+  }
+}
+
+@keyframes css {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes js {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 60%;
+  }
+}
+
+@keyframes php {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 60%;
+  }
+}
+
+@keyframes sql {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 60%;
+  }
+}
+
+@keyframes react {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 60%;
+  }
+}
+
+@keyframes symfony {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 60%;
+  }
+}
+
+/******* CV ************/
+
+.cv {
+  width: 100%;
+}
+
+figure a {
+  text-decoration: none;
+}
+
+figcaption {
+  margin: auto;
+  padding: 2%;
+  margin-top: 4%;
+  text-align: center;
+  display: block;
+  background-color: #011b27;
+  color: white;
+  width: 50%;
+  height: auto;
+}
+
+.cv-button {
+  display: none;
+}
+
+/******************************************************
+                SECTION : PROJECTS (carousel1)
+*******************************************************/
+
+.carousel1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10%;
+  /***animation scale*/
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 3s ease, transform 3s ease;
+}
+
+.carousel1.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel1 .slider {
+  display: flex;
+  padding: 2px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: auto;
+}
+
+.carousel1 img {
+  margin: 30px;
+  width: 500px;
+  /* width: 100%; si plus d'mage*/
+  height: auto;
+}
+
+.project-card {
+  position: relative;
+}
+.project-card a{
+  text-decoration: none;
+}
+
+.project-card::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.carousel1 .control {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #02293b;
+  cursor: pointer;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.carousel1 .prev {
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.carousel1 .next {
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  z-index: 1;
+}
+
+.project-card p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 40%;
+  margin: auto;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-card:hover p {
+  opacity: 1;
+  height: 95%;
+}
+
+.project-card h5{
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+
+.carousel {
+  display: none;
+  margin-bottom: 5%;
+}
+
+.carousel-caption {
+  opacity: 0;
+}
+
+.carousel-caption:hover {
+  opacity: 1;
+}
+
+/******************************************************
+               CONTACT
+*******************************************************/
+
+.contact {
+  width: 100%;
+  border-radius: 8px;
+  padding: 1%;
+  margin: auto;
+  color: black;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.contact>h1 {
+  font-weight: 500;
+}
+
+.contact>p {
+  font-weight: 300;
+}
+
+form div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 83px;
+  margin-top: 25px;
+}
+
+form div>label {
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+form div>input,
+form div>textarea {
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+form div>input {
+  height: 50px;
+  padding-left: 10px;
+}
+
+form div>textarea {
+  height: 195px;
+  padding: 15px 0px 0px 10px;
+}
+
+
+form div:last-child {
+  align-items: center;
+  margin-top: 20px;
+}
+
+form button {
+  height: 60px;
+  font-weight: 700;
+  font-size: 20px;
+  background: white;
+  border: rgba(48, 48, 48, 0.5) solid 1px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #303030;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.social-networks ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-networks li {
+  padding-right: 8%;
+  list-style-type: none;
+}
+
+.social-networks i {
+  color: black;
+}
+
+/******************************************************
+               FOOTER
+*******************************************************/
+
+footer {
+  margin-top: 100px;
+}
+
+footer i {
+  font-size: 150%;
+}
+
+footer p {
+  font-size: 15px;
+}
+
+/******************************************************
+                RESPONSIVE : MEDIAS QUERIES
+*******************************************************/
+@media screen and (min-width: 622px) and (max-width: 1500px) {
+  .flexbox-container {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  #mySkills {
+    margin-right: 10%;
+  }
+
+  .contact {
+    margin-top: 8%;
+  }
+}
+
+
+@media screen and (max-width: 621px) {
+  body {
+    align-items: center;
+    margin: 0;
+  }
+
+  header {
+    margin-left: 4%;
+  }
+
+  nav h1 {
+    margin-left: 4%;
+  }
+
+  nav ul {
+    flex-wrap: nowrap;
+    margin-right: 5%;
+  }
+
+  .about {
+    margin: 5%;
+  }
+
+  .flexbox-container {
+    margin-bottom: 8%;
+  }
+
+  #mySkills {
+    width: 100%;
+    margin: auto;
+
+    box-shadow: none;
+  }
+
+  .about {
+    margin-top: 2%px;
+  }
+
+  .about p {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 300;
+  }
+
+  .flexbox-container {
+    flex-direction: column;
+  }
+
+  .title-projet {
+    margin-left: 4%;
+  }
+
+  figure {
+    display: none;
+  }
+
+  .cv-button {
+    display: block;
+    margin: auto;
+    margin-bottom: 5%;
+    padding: 2%;
+    border-radius: 20px;
+    text-align: center;
+    display: block;
+    background-color: #011b27;
+    color: white;
+    width: 50%;
+    height: auto;
+  }
+
+  .carousel1 {
+    display: none;
+  }
+
+  .carousel {
+    display: block;
+  }
+
+  .contact {
+    width: 100%;
+    margin-top: 8%;
+  }
+
+  .social-networks ul {
+    justify-content: space-between;
+  }
+
+  .social-networks li {
+    padding-right: 0;
+  }
+
+}
