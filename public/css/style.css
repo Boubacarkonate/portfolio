@@ -411,6 +411,7 @@ figcaption {
   margin: auto;
   opacity: 0;
   transition: opacity 0.3s;
+  text-align: start;
 }
 
 .project-card:hover img {
