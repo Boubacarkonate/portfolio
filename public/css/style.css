@@ -56,6 +56,10 @@ nav li {
   cursor: pointer;
 }
 
+nav a {
+  color: black;
+}
+
 nav li span {
   position: absolute;
   top: -5px;
