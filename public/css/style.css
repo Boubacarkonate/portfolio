@@ -519,6 +519,14 @@ form button {
   padding-right: 1%;
 }
 
+.success-message {
+  color: #00FF00; /* Vert */
+}
+
+.error-message {
+  color: #FF0000; /* Rouge */
+}
+
 .social-networks ul {
   display: flex;
   justify-content: center;

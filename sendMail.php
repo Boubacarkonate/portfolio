@@ -27,10 +27,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     mail($to, $subject, $email_content, $headers_str);
     
-    $_SESSION['success'] = true;
+    if (mail($to, $subject, $email_content, $headers_str)) {
+        $_SESSION['success'] = true;
+        $_SESSION['message'] = "Votre message a été envoyé avec succès.";
+        $_SESSION['message_class'] = "success-message";
+    } else {
+        $_SESSION['success'] = false;
+        $_SESSION['message'] = "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.";
+        $_SESSION['message_class'] = "error-message";
+    }
 
   
-    header("Location: index.html");
+    header("Location: index.php");
     exit();
 }
 ?>
