@@ -520,11 +520,15 @@ form button {
 }
 
 .success-message {
-  color: #00FF00; /* Vert */
+  color: white;
+  background-color: #0d9e0dfc;
+  text-align: center;
 }
 
 .error-message {
-  color: #FF0000; /* Rouge */
+  color: white; 
+  background-color: #FF0000;
+  text-align: center;
 }
 
 .social-networks ul {

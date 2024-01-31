@@ -1,11 +1,14 @@
+<!--index.php-->
 <?php
     session_start();
+
     if (isset($_SESSION['success'])) {
-        echo '<div class="' . $_SESSION['message_class'] . '">' . $_SESSION['message'] . '</div>';
-        unset($_SESSION['success']);
-        unset($_SESSION['message']);
-        unset($_SESSION['message_class']);
-    }
+      echo '<div class="' . $_SESSION['message_class'] . '">' . $_SESSION['message'] . '</div>';
+      unset($_SESSION['success']);
+      unset($_SESSION['message']);
+      unset($_SESSION['message_class']);
+  }
+   
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -260,6 +263,8 @@
   </div>
 
   <section class="contact">
+
+
  
     <h2>Contactez-moi</h2>
     <p>N'hésitez pas à me contacter, je vous répondrai dans les plus brefs délais.</p>
