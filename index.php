@@ -22,7 +22,7 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="public/css/style.css" />
+  <link rel="stylesheet" href="public/css//style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,7 +32,7 @@
   <nav>
     <h1>
       <i class="fa-solid fa-laptop-code"></i>
-      Boubacar Konaté
+      Boubacar Konaté 
     </h1>
     <ul>
       <li>
@@ -127,7 +127,7 @@
       </ul>
     </section>
     <figure>
-      <a href="public/media/CurriculumVitae.pdf"><img class="cv" src="public/media/curriculumVitae.png"
+      <a href="public/media/CurriculumVitae.pdf"><img class="cv" src="public/media//curriculumVitae.png"
           alt="curriculum vitae">
         <figcaption>Cliquer sur le CV</figcaption>
       </a>
@@ -145,7 +145,7 @@
       <div class="project-card" data-text="etalent"><a href="https://etalentsocial.fr/" target="blank">
           <img src="public/media/projects/etalent.png" alt="Project 1">
           <h5><i class="fa-solid fa-link"></i>etalentsocial</h5>
-          <p>Projet de formation (Symfony/Html/Css/Js/MySql).</p>
+          <p>Projet personnel (Symfony/Html/Css/Js/MySql).</p>
         </a>
       </div>
       <div class="project-card" data-text="Description du projet 2"><a href="https://adei-france.fr/" target="blank">
@@ -175,7 +175,13 @@
       <div class="project-card" data-text="Description du projet 6"><a href="https://github.com/Boubacarkonate/Ateampique-test-2.git">
           <img src="public/media/projects/apprendre.png" alt="Project 6">
           <h5><i class="fa-solid fa-link"></i>apprendre à apprendre</h5>
-          <p>Projet de formation (Swift/SwifUI).</p>
+          <p>Projet personnel (Swift/SwifUI).</p>
+        </a>
+      </div>
+      <div class="project-card" data-text="Description du projet 6"><a href="https://github.com/Boubacarkonate/Ateampique-test-2.git">
+          <img src="public/media/projects/weCare.png" alt="Project 6">
+          <h5><i class="fa-solid fa-link"></i>WeCare</h5>
+          <p>Projet personnel (React Native/firebase).</p>
         </a>
       </div>
 
@@ -197,13 +203,15 @@
         aria-label="Slide 5"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
         aria-label="Slide 6"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"
+        aria-label="Slide 7"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a href="https://etalentsocial.fr/" target="blank"><img src="public/media/projects/etalent.png" class="d-block w-100" alt="project">
         <div class="carousel-caption  d-md-block bg-dark text-white">
           <h3><i class="fa-solid fa-link"></i>etalentsocial</h3>
-          <p class="text-center fs-6">Projet de formation (Symfony/Html/Css/Js/MySql).</p>
+          <p class="text-center fs-6">Projet personnel (Symfony/Html/Css/Js/MySql).</p>
         </div>
       </a>
       </div>
@@ -247,7 +255,16 @@
         <img src="public/media/projects/apprendre.png" class="d-block w-100" alt="project">
         <div class="carousel-caption d-md-block bg-dark text-white">
           <h3><i class="fa-solid fa-link"></i>apprendre à apprendre<h3>
-          <p class="text-center fs-6">Projet de formation (Swift/SwifUI).</p>
+          <p class="text-center fs-6">Projet personnel (Swift/SwifUI).</p>
+          </div>
+        </a> 
+      </div>
+      <div class="carousel-item">
+       <a href="https://github.com/Boubacarkonate/weCare-project.git" target="blank">
+        <img src="public/media/projects/weCare.png" class="d-block w-100" alt="project">
+        <div class="carousel-caption d-md-block bg-dark text-white">
+          <h3><i class="fa-solid fa-link"></i>WeCare<h3>
+          <p class="text-center fs-6">Projet personnel (React Native/Firebase).</p>
           </div>
         </a> 
       </div>
