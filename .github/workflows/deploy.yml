@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Construire le site Astro
         uses: withastro/action@v3
+        with:
+          node-version: 22 # Astro exige Node >= 22 (le défaut de l'action est trop ancien)
         # Détecte le gestionnaire de paquets, lance « npm ci » puis « npm run build »
         # et prépare dist/ pour GitHub Pages.
 
