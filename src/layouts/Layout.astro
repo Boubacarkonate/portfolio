@@ -279,6 +279,27 @@ const L = {
         document.querySelectorAll('main section[id]').forEach((s) => spy.observe(s));
       }
 
+      // Filtre des réalisations par type (data-cat sur chaque carte).
+      const filters = document.querySelector('.project-filters');
+      if (filters) {
+        const buttons = filters.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.projects-grid .project-card');
+        buttons.forEach((btn) => {
+          btn.onclick = () => {
+            const want = btn.dataset.filter;
+            buttons.forEach((b) => {
+              const on = b === btn;
+              b.classList.toggle('is-active', on);
+              b.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
+            cards.forEach((card) => {
+              const show = want === 'all' || card.dataset.cat === want;
+              card.classList.toggle('is-hidden', !show);
+              if (show) card.classList.add('visible'); // garde visible même si l'anim n'a pas été déclenchée
+            });
+          };
+        });
+      }
     }
 
     document.addEventListener('astro:page-load', setup);

@@ -935,6 +935,32 @@ strong { font-weight: 600; }
   flex-direction: column;
 }
 
+/* Filtres de projets (n'apparaissent qu'avec JavaScript ; sans JS, tout reste visible) */
+.project-filters { display: none; }
+html.js .project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.filter-btn {
+  padding: 0.45rem 1.05rem;
+  border-radius: var(--pill);
+  background: var(--card);
+  border: var(--hairline) solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+.filter-btn.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.projects-grid .project-card.is-hidden { display: none; }
+
 .project-img-wrap {
   display: block;
   overflow: hidden;

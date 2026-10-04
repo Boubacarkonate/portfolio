@@ -252,9 +252,17 @@ const jsonLdPerson = JSON.stringify({
           <h2 class="section-title">Des projets concrets, la plupart à tester en ligne</h2>
         </header>
 
+        <div class="project-filters reveal" role="group" aria-label="Filtrer les projets">
+          <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">Tout</button>
+          <button type="button" class="filter-btn" data-filter="client" aria-pressed="false">Client</button>
+          <button type="button" class="filter-btn" data-filter="pro" aria-pressed="false">Professionnel</button>
+          <button type="button" class="filter-btn" data-filter="perso" aria-pressed="false">Personnel</button>
+          <button type="button" class="filter-btn" data-filter="demo" aria-pressed="false">Démonstration</button>
+        </div>
+
         <div class="projects-grid">
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="perso">
             <a href="https://social-erp.vercel.app/" class="project-img-wrap" target="_blank" rel="noopener noreferrer"
               tabindex="-1" aria-hidden="true">
               <span class="frame-bar"><i></i><i></i><i></i></span>
@@ -278,7 +286,7 @@ const jsonLdPerson = JSON.stringify({
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="pro">
             <div class="project-cover project-cover--saas" aria-hidden="true">
               <span class="frame-bar"><i></i><i></i><i></i></span>
               <div class="cover-app">
@@ -302,7 +310,7 @@ const jsonLdPerson = JSON.stringify({
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="pro">
             <div class="project-cover project-cover--mobile" aria-hidden="true">
               <div class="cover-phone">
                 <div class="cover-phone-top"><b></b><i></i></div>
@@ -325,7 +333,7 @@ const jsonLdPerson = JSON.stringify({
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="perso">
             <a href="https://exemple-blog.vercel.app/" class="project-img-wrap" target="_blank"
               rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
               <span class="frame-bar"><i></i><i></i><i></i></span>
@@ -349,7 +357,7 @@ const jsonLdPerson = JSON.stringify({
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="client">
             <a href="https://coreham.fr/" class="project-img-wrap" target="_blank" rel="noopener noreferrer"
               tabindex="-1" aria-hidden="true">
               <span class="frame-bar"><i></i><i></i><i></i></span>
@@ -368,7 +376,7 @@ const jsonLdPerson = JSON.stringify({
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="client">
             <a href="https://adei-france.fr/" class="project-img-wrap" target="_blank" rel="noopener noreferrer"
               tabindex="-1" aria-hidden="true">
               <span class="frame-bar"><i></i><i></i><i></i></span>
@@ -387,7 +395,7 @@ const jsonLdPerson = JSON.stringify({
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="perso">
             <a href="https://cssforge-gilt.vercel.app/" class="project-img-wrap" target="_blank"
               rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
               <span class="frame-bar"><i></i><i></i><i></i></span>
@@ -409,7 +417,7 @@ const jsonLdPerson = JSON.stringify({
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="demo">
             <a href={`${base}demos/orvelle/index.html`} class="project-img-wrap" tabindex="-1" aria-hidden="true">
               <span class="frame-bar"><i></i><i></i><i></i></span>
               <img src={`${base}media/projects/orvelle.jpg`} alt="" width="640" height="360" loading="lazy">
@@ -426,7 +434,7 @@ const jsonLdPerson = JSON.stringify({
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-cat="demo">
             <a href="https://heritage-ebon.vercel.app/" class="project-img-wrap" target="_blank"
               rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
               <span class="frame-bar"><i></i><i></i><i></i></span>
