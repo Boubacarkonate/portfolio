@@ -2,3 +2,8 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+
+# Notes internes, gardées en local uniquement (ne pas publier sur le dépôt public)
+ROADMAP.md
+CLAUDE.md
+A-LIRE-AVANT-DE-PUBLIER.md
