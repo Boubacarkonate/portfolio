@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orvelle — bistrot de saison (site de démonstration)</title>
+  <meta name="description"
+    content="Site de démonstration réalisé par Boubacar Konaté : Orvelle est un restaurant fictif. Carte de saison, formule du midi, réservation en ligne.">
+  <!-- Restaurant fictif : on demande aux moteurs de recherche de ne pas l'indexer. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1e3a2f">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:ital,wght@0,400..700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="orvelle.css">
+</head>
+
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <p class="ribbon">
+    <span><strong>Site de démonstration.</strong> Orvelle est un restaurant fictif : aucune réservation n'est
+      envoyée.</span>
+    <a href="/portfolio/#realisations">Conçu et développé par Boubacar Konaté →</a>
+  </p>
+
+  <header class="header" id="header">
+    <a class="logo" href="#accueil" aria-label="Orvelle, retour en haut de page">
+      <span class="logo-name">Orvelle</span>
+      <span class="logo-tag">bistrot de saison</span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav">
+        <li><a href="#carte">La carte</a></li>
+        <li><a href="#midi">Le midi</a></li>
+        <li><a href="#lieu">Le lieu</a></li>
+        <li><a href="#infos">Infos pratiques</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="header-socials">
+        <a href="#" aria-label="Instagram (démonstration)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Facebook (démonstration)"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="#" aria-label="TripAdvisor (démonstration)"><i class="fa-brands fa-tripadvisor" aria-hidden="true"></i></a>
+      </div>
+      <a class="btn btn-tomato header-cta" href="#reserver">Réserver</a>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ACCUEIL -->
+    <section class="hero" id="accueil">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="status" id="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-text">Mardi – samedi, midi et soir</span>
+          </p>
+          <h1 class="hero-title">Cuisine de marché, <span class="accent">à la table</span> du quartier.</h1>
+          <p class="hero-lead">Une carte courte qui change avec les saisons, des produits d'Île-de-France et une
+            formule du midi à 21 €. Au cœur du 11<sup>e</sup> arrondissement.</p>
+          <div class="hero-actions">
+            <a class="btn btn-tomato" href="#reserver">Réserver une table</a>
+            <a class="btn btn-line" href="#carte">Voir la carte</a>
+          </div>
+          <ul class="hero-facts">
+            <li><strong>32</strong> couverts</li>
+            <li><strong>12</strong> places en terrasse</li>
+            <li><strong>4</strong> cartes par an</li>
+          </ul>
+        </div>
+        <figure class="hero-visual">
+          <img class="hero-plate" src="img/burrata.jpg" alt="Assiette de burrata, tomates anciennes et basilic, vue du dessus"
+            width="1000" height="1000">
+          <figcaption class="hero-note">
+            <span class="hero-note-kicker">Le plat du moment</span>
+            Burrata, tomates anciennes, basilic
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- BANDEAU SAISON -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Tomates anciennes</span><span>Courge butternut</span><span>Cèpes</span><span>Poires</span><span>Maquereau de ligne</span><span>Herbes du jardin</span><span>Noisettes</span>
+        <span>Tomates anciennes</span><span>Courge butternut</span><span>Cèpes</span><span>Poires</span><span>Maquereau de ligne</span><span>Herbes du jardin</span><span>Noisettes</span>
+      </div>
+    </div>
+
+    <!-- LA CARTE -->
+    <section class="section section--forest" id="carte">
+      <div class="wrap">
+        <header class="section-head section-head--light">
+          <p class="kicker">Automne</p>
+          <h2>La carte</h2>
+          <p>Tout est préparé sur place, à partir de produits frais livrés chaque matin.</p>
+        </header>
+
+        <div class="menu-card">
+          <div class="menu-controls">
+            <div class="menu-tabs" role="tablist" aria-label="Catégories de la carte" hidden>
+              <button type="button" role="tab" id="tab-entrees" aria-controls="cat-entrees" aria-selected="true">Entrées</button>
+              <button type="button" role="tab" id="tab-plats" aria-controls="cat-plats" aria-selected="false" tabindex="-1">Plats</button>
+              <button type="button" role="tab" id="tab-desserts" aria-controls="cat-desserts" aria-selected="false" tabindex="-1">Desserts</button>
+            </div>
+            <div class="menu-filters" role="group" aria-label="Filtrer la carte" hidden>
+              <button type="button" class="chip" data-filter="vege" aria-pressed="false">Végétarien</button>
+              <button type="button" class="chip" data-filter="sg" aria-pressed="false">Sans gluten</button>
+            </div>
+          </div>
+
+          <div class="menu-cat" id="cat-entrees" role="tabpanel" aria-labelledby="tab-entrees">
+            <h3 class="menu-cat-title">Entrées</h3>
+            <ul class="menu-list">
+              <li class="dish" data-tags="vege sg">
+                <div class="dish-line"><span class="dish-name">Burrata, tomates anciennes, basilic</span><span class="dish-price">13 €</span></div>
+                <p class="dish-desc">Huile d'olive de Sicile, fleur de sel. <span class="tag">Végétarien</span><span class="tag">Sans gluten</span></p>
+              </li>
+              <li class="dish" data-tags="vege sg">
+                <div class="dish-line"><span class="dish-name">Velouté de courge</span><span class="dish-price">9 €</span></div>
+                <p class="dish-desc">Graines torréfiées, crème crue, croûtons à part. <span class="tag">Végétarien</span><span class="tag">Sans gluten</span></p>
+              </li>
+              <li class="dish" data-tags="vege">
+                <div class="dish-line"><span class="dish-name">Œuf parfait, champignons des bois</span><span class="dish-price">12 €</span></div>
+                <p class="dish-desc">Noisettes grillées, pain de campagne. <span class="tag">Végétarien</span></p>
+              </li>
+              <li class="dish" data-tags="">
+                <div class="dish-line"><span class="dish-name">Terrine de campagne maison</span><span class="dish-price">11 €</span></div>
+                <p class="dish-desc">Pickles d'oignons rouges, moutarde à l'ancienne.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu-cat" id="cat-plats" role="tabpanel" aria-labelledby="tab-plats">
+            <h3 class="menu-cat-title">Plats</h3>
+            <ul class="menu-list">
+              <li class="dish" data-tags="sg">
+                <div class="dish-line"><span class="dish-name">Maquereau grillé, fenouil, citron confit</span><span class="dish-price">22 €</span></div>
+                <p class="dish-desc">Pêche de ligne, beurre blanc aux herbes. <span class="tag">Sans gluten</span></p>
+              </li>
+              <li class="dish" data-tags="sg">
+                <div class="dish-line"><span class="dish-name">Suprême de volaille fermière</span><span class="dish-price">24 €</span></div>
+                <p class="dish-desc">Jus au thym, purée de céleri-rave. <span class="tag">Sans gluten</span></p>
+              </li>
+              <li class="dish" data-tags="vege">
+                <div class="dish-line"><span class="dish-name">Risotto d'épeautre aux cèpes</span><span class="dish-price">21 €</span></div>
+                <p class="dish-desc">Parmesan affiné 24 mois, persil plat. <span class="tag">Végétarien</span></p>
+              </li>
+              <li class="dish" data-tags="sg">
+                <div class="dish-line"><span class="dish-name">Joue de bœuf braisée au vin rouge</span><span class="dish-price">26 €</span></div>
+                <p class="dish-desc">Carottes glacées, cuisson de sept heures. <span class="tag">Sans gluten</span></p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu-cat" id="cat-desserts" role="tabpanel" aria-labelledby="tab-desserts">
+            <h3 class="menu-cat-title">Desserts</h3>
+            <ul class="menu-list">
+              <li class="dish" data-tags="vege">
+                <div class="dish-line"><span class="dish-name">Tarte fine aux poires</span><span class="dish-price">9 €</span></div>
+                <p class="dish-desc">Pâte feuilletée maison, crème crue. <span class="tag">Végétarien</span></p>
+              </li>
+              <li class="dish" data-tags="vege sg">
+                <div class="dish-line"><span class="dish-name">Mousse au chocolat noir</span><span class="dish-price">8 €</span></div>
+                <p class="dish-desc">Chocolat 70 %, fleur de sel. <span class="tag">Végétarien</span><span class="tag">Sans gluten</span></p>
+              </li>
+              <li class="dish" data-tags="vege sg">
+                <div class="dish-line"><span class="dish-name">Riz au lait vanillé</span><span class="dish-price">8 €</span></div>
+                <p class="dish-desc">Caramel au beurre salé. <span class="tag">Végétarien</span><span class="tag">Sans gluten</span></p>
+              </li>
+              <li class="dish" data-tags="vege">
+                <div class="dish-line"><span class="dish-name">Assiette de fromages affinés</span><span class="dish-price">11 €</span></div>
+                <p class="dish-desc">Trois fromages de la fromagerie voisine. <span class="tag">Végétarien</span></p>
+              </li>
+            </ul>
+          </div>
+
+          <p class="menu-empty" id="menu-empty" hidden>Aucun plat ne correspond à ces filtres dans cette catégorie.</p>
+
+          <p class="menu-note">Prix nets, service compris. Vins au verre à partir de 6 €. La liste des allergènes est
+            disponible sur demande auprès de l'équipe.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULE DU MIDI -->
+    <section class="section section--saffron" id="midi">
+      <div class="wrap midi-grid">
+        <header class="section-head">
+          <p class="kicker">Du mardi au vendredi</p>
+          <h2>La formule du midi</h2>
+          <p>Une entrée, un plat et un dessert du jour, écrits à l'ardoise chaque matin selon le marché.</p>
+        </header>
+        <ul class="formulas">
+          <li class="formula">
+            <span class="formula-price">21 €</span>
+            <span class="formula-name">Entrée et plat, ou plat et dessert</span>
+          </li>
+          <li class="formula">
+            <span class="formula-price">26 €</span>
+            <span class="formula-name">Entrée, plat et dessert</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LE LIEU -->
+    <section class="section" id="lieu">
+      <div class="wrap lieu-grid">
+        <figure class="lieu-visual">
+          <img src="img/salle.jpg" alt="La salle d'Orvelle : bistrot parisien lumineux, tables en bois, banquette verte et plantes" width="1400" height="933"
+            loading="lazy">
+        </figure>
+        <div class="lieu-text">
+          <p class="kicker kicker--tomato">Le lieu</p>
+          <h2>Un bistrot de quartier, sans chichis</h2>
+          <p>Après dix ans dans des bistrots parisiens, Inès a ouvert Orvelle pour cuisiner ce que les producteurs
+            d'Île-de-France lui apportent chaque semaine. Une salle lumineuse, une terrasse au calme, une cuisine
+            ouverte.</p>
+          <p>La salle se privatise pour vos repas de groupe, jusqu'à 32 personnes.</p>
+          <ul class="lieu-list">
+            <li>Produits frais livrés chaque matin</li>
+            <li>Pain et desserts faits maison</li>
+            <li>Salle accessible aux personnes à mobilité réduite</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section class="section section--cream2" aria-labelledby="galerie-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker kicker--tomato">En ce moment</p>
+          <h2 id="galerie-title">Dans nos assiettes</h2>
+        </header>
+        <ul class="gallery">
+          <li><figure><img src="img/veloute.jpg" alt="Velouté de courge, graines torréfiées et crème" width="800" height="800" loading="lazy"><figcaption>Velouté de courge</figcaption></figure></li>
+          <li><figure><img src="img/maquereau.jpg" alt="Maquereau grillé, fenouil et citron" width="800" height="800" loading="lazy"><figcaption>Maquereau grillé</figcaption></figure></li>
+          <li><figure><img src="img/salade.jpg" alt="Radis finement tranchés et herbes du jardin" width="800" height="800" loading="lazy"><figcaption>Radis et herbes du jardin</figcaption></figure></li>
+          <li><figure><img src="img/tarte.jpg" alt="Tarte fine aux poires et crème" width="800" height="800" loading="lazy"><figcaption>Tarte fine aux poires</figcaption></figure></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RÉSERVATION ET INFOS -->
+    <section class="section" id="reserver">
+      <div class="wrap resa-grid">
+        <div class="resa-card">
+          <header class="section-head">
+            <p class="kicker kicker--tomato">Réservation</p>
+            <h2>Réserver une table</h2>
+            <p>Réponse par SMS dans l'heure pendant le service. Pour plus de 8 personnes, appelez-nous.</p>
+          </header>
+
+          <form class="resa-form" id="resa-form" novalidate>
+            <div class="row">
+              <div class="field">
+                <label for="r-date">Date</label>
+                <input id="r-date" name="date" type="date" required aria-describedby="r-date-error">
+                <p class="error" id="r-date-error"></p>
+              </div>
+              <div class="field">
+                <label for="r-service">Service</label>
+                <select id="r-service" name="service">
+                  <option value="midi">Midi</option>
+                  <option value="soir" selected>Soir</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="r-time">Heure</label>
+                <select id="r-time" name="time" required aria-describedby="r-time-error"></select>
+                <p class="error" id="r-time-error"></p>
+              </div>
+              <div class="field">
+                <label for="r-guests">Nombre de personnes</label>
+                <select id="r-guests" name="guests" aria-describedby="r-guests-note">
+                  <option>1</option><option selected>2</option><option>3</option><option>4</option>
+                  <option>5</option><option>6</option><option>7</option><option>8</option>
+                  <option value="9+">Plus de 8</option>
+                </select>
+                <p class="note" id="r-guests-note" hidden>Pour plus de 8 personnes, appelez-nous au 01 99 00 42 17.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="r-name">Nom</label>
+                <input id="r-name" name="name" type="text" autocomplete="name" required aria-describedby="r-name-error">
+                <p class="error" id="r-name-error"></p>
+              </div>
+              <div class="field">
+                <label for="r-phone">Téléphone mobile</label>
+                <input id="r-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required
+                  placeholder="06 12 34 56 78" aria-describedby="r-phone-error">
+                <p class="error" id="r-phone-error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="r-message">Une précision ? <span class="optional">(facultatif)</span></label>
+              <textarea id="r-message" name="message" rows="3"
+                placeholder="Anniversaire, allergie, chaise haute..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-tomato btn-block">Envoyer la demande</button>
+            <p class="form-note">Démonstration : aucune donnée n'est envoyée ni conservée.</p>
+          </form>
+
+          <div class="resa-done" id="resa-done" tabindex="-1" hidden>
+            <p class="resa-done-kicker">Demande enregistrée (démonstration)</p>
+            <p class="resa-done-summary" id="resa-summary"></p>
+            <p>Sur un vrai site, le restaurant recevrait votre demande et vous confirmerait la table par SMS. Ici,
+              aucun message n'a été envoyé.</p>
+            <button type="button" class="btn btn-line" id="resa-again">Faire une autre demande</button>
+          </div>
+        </div>
+
+        <aside class="infos" id="infos" aria-labelledby="infos-title">
+          <h2 id="infos-title">Infos pratiques</h2>
+          <div class="info-block">
+            <h3>Adresse</h3>
+            <p>12 rue de l'Exemple<br>75011 Paris <span class="fictive">(adresse fictive)</span></p>
+          </div>
+          <div class="info-block">
+            <h3>Horaires</h3>
+            <table class="hours">
+              <caption class="sr-only">Horaires d'ouverture</caption>
+              <tbody>
+                <tr data-day="1"><th scope="row">Lundi</th><td>Fermé</td></tr>
+                <tr data-day="2"><th scope="row">Mardi</th><td>12 h – 14 h 30 · 19 h – 22 h 30</td></tr>
+                <tr data-day="3"><th scope="row">Mercredi</th><td>12 h – 14 h 30 · 19 h – 22 h 30</td></tr>
+                <tr data-day="4"><th scope="row">Jeudi</th><td>12 h – 14 h 30 · 19 h – 22 h 30</td></tr>
+                <tr data-day="5"><th scope="row">Vendredi</th><td>12 h – 14 h 30 · 19 h – 22 h 30</td></tr>
+                <tr data-day="6"><th scope="row">Samedi</th><td>12 h – 15 h · 19 h – 23 h</td></tr>
+                <tr data-day="0"><th scope="row">Dimanche</th><td>Fermé</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info-block">
+            <h3>Contact</h3>
+            <p><a href="tel:+33199004217">01 99 00 42 17</a><br><a
+                href="mailto:bonjour@orvelle.example">bonjour@orvelle.example</a></p>
+            <p class="fictive">Numéro réservé aux œuvres de fiction.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="logo-name footer-logo">Orvelle</p>
+        <p>Bistrot de saison · Paris 11<sup>e</sup></p>
+        <div class="socials" aria-label="Réseaux sociaux (démonstration)">
+          <a href="#" aria-label="Instagram (démonstration)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Facebook (démonstration)"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="TripAdvisor (démonstration)"><i class="fa-brands fa-tripadvisor" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <p class="footer-demo">Orvelle est un restaurant fictif. Ce site est une démonstration conçue et développée par
+        <a href="/portfolio/">Boubacar Konaté, développeur web full stack</a>. Photos d'illustration générées par IA
+        pour la démonstration.</p>
+    </div>
+  </footer>
+
+  <nav class="mobile-bar" aria-label="Actions rapides">
+    <a class="btn btn-tomato" href="#reserver">Réserver</a>
+    <a class="btn btn-line btn-line--light" href="tel:+33199004217">Appeler</a>
+  </nav>
+
+  <script src="orvelle.js"></script>
+</body>
+
+</html>

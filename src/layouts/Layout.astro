@@ -1,0 +1,288 @@
+---
+import { ClientRouter } from 'astro:transitions';
+
+export interface Props {
+  title: string;
+  description: string;
+  lang?: 'fr' | 'en';
+  enHref?: string; // cible du bouton EN (pour une page FR seule, ex. les études de cas)
+}
+
+const { title, description, lang = 'fr', enHref } = Astro.props;
+
+// `base` du site (ex. "/portfolio/"). Tous les liens internes passent par lui
+// pour fonctionner aussi bien en local qu'une fois publié dans un sous-dossier.
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/'); // se termine par "/"
+
+// URLs de bascule de langue, calculées depuis le chemin courant (base retirée).
+const path = Astro.url.pathname;
+const afterBase = path.startsWith(base) ? path.slice(base.length) : path.replace(/^\//, '');
+const rel = '/' + afterBase; // "/" ou "/en/…" ou "/etudes-de-cas/…"
+const noEn = rel.replace(/^\/en(?=\/|$)/, '') || '/';
+const frUrl = base + noEn.replace(/^\//, '');
+const enUrl = noEn === '/' ? base + 'en/' : base + 'en' + noEn;
+const enSwitch = enHref || enUrl;
+
+const canonical = new URL(path, Astro.site).href;
+const ogImage = new URL(`${base}media/og-image.png`, Astro.site).href;
+
+// Préfixe des liens de navigation selon la langue (accueil FR = base, EN = base + "en/").
+const home = lang === 'en' ? `${base}en/` : base;
+const L = {
+  about: lang === 'en' ? 'Background' : 'Parcours',
+  skills: lang === 'en' ? 'Skills' : 'Compétences',
+  work: lang === 'en' ? 'Work' : 'Réalisations',
+  cases: lang === 'en' ? 'Case studies' : 'Études de cas',
+  contact: lang === 'en' ? 'Contact' : 'Contact',
+  cta: lang === 'en' ? 'Download CV' : 'Télécharger mon CV',
+  cvShort: lang === 'en' ? 'My CV' : 'Mon CV',
+  skip: lang === 'en' ? 'Skip to content' : 'Aller au contenu',
+  closeMenu: lang === 'en' ? 'Close menu' : 'Fermer le menu',
+  tagline: lang === 'en'
+    ? 'Full stack web developer in Paris. React, Next.js, TypeScript, PHP, Symfony.'
+    : 'Développeur web full stack à Paris. React, Next.js, TypeScript, PHP, Symfony.',
+  top: lang === 'en' ? 'Back to top' : 'Retour en haut',
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Boubacar Konaté" />
+  <meta name="theme-color" content="#f5efe6" />
+
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'fr_FR'} />
+  <meta property="og:site_name" content="Boubacar Konaté" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Boubacar Konaté, développeur web freelance à Paris" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href={`${base}media/favicon.svg`} type="image/svg+xml" />
+  <script is:inline>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href={`${base}style.css`} />
+
+  <ClientRouter />
+
+  <slot name="head" />
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">{L.skip}</a>
+
+  <!-- EN-TÊTE -->
+  <header class="site-header" id="navbar">
+    <a href={home} class="brand" aria-label="Boubacar Konaté, accueil">
+      Boubacar Konaté<span class="brand-dot" aria-hidden="true">.</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href={`${home}#a-propos`}>{L.about}</a></li>
+        <li><a href={`${home}#competences`}>{L.skills}</a></li>
+        <li><a href={`${home}#realisations`}>{L.work}</a></li>
+        <li><a href={`${home}#contact`}>{L.contact}</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <a href={frUrl} class={`lang-btn${lang === 'fr' ? ' active' : ''}`} hreflang="fr"
+          aria-current={lang === 'fr' ? 'true' : undefined}>FR</a>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a href={enSwitch} class={`lang-btn${lang === 'en' ? ' active' : ''}`} hreflang="en"
+          aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+      </div>
+      <a href={`${base}media/cv.pdf`} target="_blank" rel="noopener noreferrer" class="btn btn-ink nav-cta">{L.cta}</a>
+      <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu" inert>
+    <div class="drawer-header">
+      <span class="brand">Boubacar Konaté<span class="brand-dot" aria-hidden="true">.</span></span>
+      <button type="button" class="drawer-close" id="drawer-close" aria-label={L.closeMenu}>
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <nav class="drawer-nav" aria-label="Menu mobile">
+      <ul>
+        <li><a href={`${home}#a-propos`}><span class="drawer-num" aria-hidden="true">01</span><span>{L.about}</span></a></li>
+        <li><a href={`${home}#competences`}><span class="drawer-num" aria-hidden="true">02</span><span>{L.skills}</span></a></li>
+        <li><a href={`${home}#realisations`}><span class="drawer-num" aria-hidden="true">03</span><span>{L.work}</span></a></li>
+        <li><a href={`${home}#contact`}><span class="drawer-num" aria-hidden="true">04</span><span>{L.contact}</span></a></li>
+      </ul>
+      <a href={`${base}media/cv.pdf`} target="_blank" rel="noopener noreferrer" class="btn btn-accent drawer-cta">{L.cta}</a>
+    </nav>
+    <div class="drawer-footer">
+      <a href="mailto:boubacar.konate@outlook.fr">boubacar.konate@outlook.fr</a>
+      <div class="drawer-socials">
+        <a href="https://github.com/Boubacarkonate" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/boubacar-konaté-a87531261" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <!-- PIED DE PAGE -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href={home} class="footer-brand">Boubacar Konaté<span class="brand-dot" aria-hidden="true">.</span></a>
+          <p class="footer-desc">{L.tagline}</p>
+        </div>
+        <nav class="footer-nav" aria-label="Pied de page">
+          <ul>
+            <li><a href={`${home}#a-propos`}>{L.about}</a></li>
+            <li><a href={`${home}#competences`}>{L.skills}</a></li>
+            <li><a href={`${home}#realisations`}>{L.work}</a></li>
+            <li><a href={`${base}etudes-de-cas/`}>{L.cases}</a></li>
+            <li><a href={`${home}#contact`}>{L.contact}</a></li>
+          </ul>
+          <div class="footer-socials">
+            <a href="https://github.com/Boubacarkonate" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/boubacar-konaté-a87531261" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:boubacar.konate@outlook.fr" aria-label="E-mail"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span class="js-year">2026</span> Boubacar Konaté</span>
+        <a href="#hero" class="footer-top-link"><span>{L.top}</span><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Comportements client, compatibles avec les transitions de page (ClientRouter).
+    // Écouteurs globaux posés une seule fois ; le reste est ré-initialisé à chaque
+    // navigation via l'évènement astro:page-load.
+    const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const pageRegions = () => [document.getElementById('navbar'), document.getElementById('main'), document.querySelector('.site-footer')].filter(Boolean);
+    function openMenu() {
+      const drawer = document.getElementById('drawer'), overlay = document.getElementById('drawer-overlay'),
+        burger = document.getElementById('burger'), close = document.getElementById('drawer-close');
+      if (!drawer || !overlay || !burger || !close) return;
+      drawer.classList.add('open'); overlay.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true'); drawer.inert = false;
+      pageRegions().forEach((r) => { r.inert = true; });
+      document.body.style.overflow = 'hidden'; close.focus();
+    }
+    function closeMenu({ restoreFocus = true } = {}) {
+      const drawer = document.getElementById('drawer'), overlay = document.getElementById('drawer-overlay'),
+        burger = document.getElementById('burger');
+      if (!drawer || !overlay || !burger) return;
+      drawer.classList.remove('open'); overlay.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false'); drawer.inert = true;
+      pageRegions().forEach((r) => { r.inert = false; });
+      document.body.style.overflow = ''; if (restoreFocus) burger.focus();
+    }
+
+    if (!window.__layoutGlobals) {
+      window.__layoutGlobals = true;
+      window.addEventListener('scroll', () => {
+        const h = document.getElementById('navbar');
+        if (h) h.classList.toggle('scrolled', window.scrollY > 8);
+      }, { passive: true });
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        const drawer = document.getElementById('drawer');
+        if (drawer && drawer.classList.contains('open')) closeMenu();
+        document.querySelectorAll('.nav-trigger[aria-expanded="true"]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.nav-trigger[aria-expanded="true"]').forEach((b) => {
+          if (!b.parentElement.contains(e.target)) b.setAttribute('aria-expanded', 'false');
+        });
+      });
+      window.matchMedia('(min-width: 53.8125em)').addEventListener('change', (e) => {
+        const drawer = document.getElementById('drawer');
+        if (e.matches && drawer && drawer.classList.contains('open')) closeMenu({ restoreFocus: false });
+      });
+    }
+
+    function setup() {
+      document.querySelectorAll('.js-year').forEach((el) => { el.textContent = String(new Date().getFullYear()); });
+
+      const h = document.getElementById('navbar');
+      if (h) h.classList.toggle('scrolled', window.scrollY > 8);
+
+      const burger = document.getElementById('burger');
+      if (burger) burger.onclick = openMenu;
+      const drawerClose = document.getElementById('drawer-close');
+      if (drawerClose) drawerClose.onclick = () => closeMenu();
+      const drawerOverlay = document.getElementById('drawer-overlay');
+      if (drawerOverlay) drawerOverlay.onclick = () => closeMenu();
+      const drawer = document.getElementById('drawer');
+      if (drawer) drawer.querySelectorAll('a[href*="#"]').forEach((link) => { link.onclick = () => closeMenu({ restoreFocus: false }); });
+
+      document.querySelectorAll('.nav-trigger').forEach((btn) => {
+        btn.onclick = () => btn.setAttribute('aria-expanded', btn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+      });
+
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !reduced()) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const sibs = [...entry.target.parentElement.querySelectorAll(':scope > .reveal:not(.visible)')];
+            const delay = Math.max(0, sibs.indexOf(entry.target)) * 90;
+            setTimeout(() => entry.target.classList.add('visible'), delay);
+            obs.unobserve(entry.target);
+          });
+        }, { threshold: 0.12, rootMargin: '0% 0% -8% 0%' });
+        revealEls.forEach((el) => obs.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('visible'));
+      }
+
+      const navLinks = document.querySelectorAll('.nav-links a[href*="#"]');
+      if (navLinks.length && 'IntersectionObserver' in window) {
+        const spy = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            navLinks.forEach((link) => {
+              const href = link.getAttribute('href') || '';
+              const hash = href.includes('#') ? href.slice(href.indexOf('#')) : '';
+              link.classList.toggle('is-active', hash === `#${id}`);
+            });
+          });
+        }, { rootMargin: '-45% 0% -50% 0%' });
+        document.querySelectorAll('main section[id]').forEach((s) => spy.observe(s));
+      }
+
+    }
+
+    document.addEventListener('astro:page-load', setup);
+  </script>
+</body>
+
+</html>

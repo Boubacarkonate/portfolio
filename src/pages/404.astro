@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/'); // préfixe du sous-dossier (se termine par "/")
+---
+
+<Layout
+  title="Page introuvable (404) — Boubacar Konaté"
+  description="Cette page n'existe pas ou a été déplacée."
+  lang="fr"
+  enHref={`${base}en/`}
+>
+  <meta name="robots" content="noindex" slot="head" />
+  <section class="section section--tint">
+    <div class="container">
+      <div class="error-wrap">
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1 class="section-title">Cette page n'existe pas (ou plus).</h1>
+        <p class="error-lead">Le lien est peut-être cassé, ou la page a été déplacée.
+          <span lang="en">This page could not be found.</span></p>
+        <div class="error-actions">
+          <a href={base} class="btn btn-accent">Retour à l'accueil</a>
+          <a href={`${base}#realisations`} class="btn btn-ghost">Voir mes projets</a>
+          <a href={`${base}etudes-de-cas/`} class="btn btn-ghost">Études de cas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

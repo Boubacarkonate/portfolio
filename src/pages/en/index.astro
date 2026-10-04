@@ -1,0 +1,489 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/'); // préfixe du sous-dossier (se termine par "/")
+const title = "Boubacar Konaté — Full stack web developer";
+const description = "Full stack web developer in Paris: React, Next.js, TypeScript, PHP and Symfony. Experience on a production SaaS, custom applications and real-world web projects.";
+const jsonLdPerson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Boubacar Konaté",
+  "jobTitle": "Full stack web developer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
+  "email": "boubacar.konate@outlook.fr",
+  "url": "https://boubacar-konate.fr/en/",
+  "sameAs": ["https://github.com/Boubacarkonate", "https://www.linkedin.com/in/boubacar-konaté-a87531261"],
+  "knowsAbout": ["React", "Next.js", "TypeScript", "Node.js", "PHP", "Symfony", "SQL", "React Native"],
+});
+---
+
+<Layout title={title} description={description} lang="en">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={jsonLdPerson} />
+  </Fragment>
+
+    <!-- HOME -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="hero-who">
+            <img src={`${base}media/profile.jpg`} alt="Portrait of Boubacar Konaté" class="hero-avatar" width="96"
+              height="96" fetchpriority="high">
+            <p>
+              <strong>Boubacar Konaté</strong>
+              <span>Full stack web developer · Paris</span>
+            </p>
+            <span class="status"><span class="status-dot" aria-hidden="true"></span><span>Open to opportunities</span></span>
+          </div>
+
+          <h1 class="hero-title">I build <em>robust</em> web applications, from front-end to back-end.</h1>
+
+          <p class="hero-desc">Full stack developer with React, Next.js, TypeScript, PHP and Symfony. I've contributed to
+            a production SaaS, built custom applications and designed accessible, polished interfaces.</p>
+
+          <div class="hero-actions">
+            <a href="#realisations" class="btn btn-accent"><span>View my projects</span><i
+                class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
+            <a href={`${base}media/cv.pdf`} target="_blank" rel="noopener noreferrer" class="link-arrow"><span>Download my CV</span><i
+                class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></a>
+          </div>
+
+          <ul class="hero-proof">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Full stack: React, Next.js, Symfony</span></li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Experience on a production SaaS</span></li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Application Design &amp; Development (RNCP level 6)</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <figure class="frame frame--back">
+            <div class="frame-bar"><i></i><i></i><i></i></div>
+            <img src={`${base}media/projects/orvelle.jpg`} alt="" width="640" height="360">
+          </figure>
+          <figure class="frame frame--front">
+            <div class="frame-bar"><i></i><i></i><i></i><span>social-erp.vercel.app</span></div>
+            <img src={`${base}media/projects/socialErp.jpg`} alt="" width="640" height="360">
+          </figure>
+          <div class="hero-note">
+            <span class="hero-note-label">Latest role</span>
+            <strong>Rézosocial · Paris</strong>
+            <span>Production web &amp; mobile SaaS</span>
+          </div>
+          <svg class="stamp" viewBox="0 0 120 120">
+            <defs>
+              <path id="stamp-circle" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" />
+            </defs>
+            <circle cx="60" cy="60" r="58" class="stamp-bg" />
+            <g class="stamp-ring">
+              <text class="stamp-text" font-size="10.5"><textPath href="#stamp-circle" textLength="280" lengthAdjust="spacing">Full stack · React · Symfony ·</textPath></text>
+            </g>
+            <circle cx="60" cy="60" r="22" class="stamp-core" />
+            <path d="M52 52 L68 68 M68 56 L68 68 L56 68" class="stamp-arrow" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="a-propos" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker"><span class="kicker-num">01</span><span>Background</span></p>
+          <h2 class="section-title">A developer who ships, and who explains</h2>
+        </header>
+        <div class="about-grid">
+          <div class="about-side">
+            <figure class="portrait reveal">
+              <img src={`${base}media/profile.jpg`} alt="Portrait of Boubacar Konaté" width="480" height="600"
+                loading="lazy">
+            </figure>
+            <div class="about-text reveal">
+              <p>I'm Boubacar Konaté, a full stack web developer based in Paris. After a first career in social work, I
+                moved into development. Since 2023 I've built WordPress sites, an HR SaaS in React and Next.js, a mobile
+                app in React Native, and helped grow a production SaaS in PHP and React.</p>
+              <p>My approach: simple, solid solutions, deadlines met, and clear explanations without jargon. I'm now
+                looking to join a team and build products for the long run.</p>
+              <a href={`${base}media/cv.pdf`} target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+                <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Download my CV</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <h3 class="timeline-head reveal">Experience</h3>
+            <ol class="timeline">
+              <li class="timeline-item reveal">
+                <span class="timeline-year">2025 – 2026</span>
+                <div>
+                  <h4>Full stack web developer</h4>
+                  <p class="timeline-org">Rézosocial · Paris</p>
+                  <p>Within the team, development and maintenance of a production web and mobile SaaS for socio-professional
+                    support: new front-end and back-end features, REST APIs, database optimisation. Two highlights: a
+                    calendar synced between the SaaS apps and external calendars (Gmail, Outlook), and an employment
+                    resources module connected to the France Travail APIs.</p>
+                  <p class="timeline-tech">PHP (Zend) · React · TypeScript · SQL · Linux</p>
+                </div>
+              </li>
+              <li class="timeline-item reveal">
+                <span class="timeline-year">2024 – 2025</span>
+                <div>
+                  <h4>Full stack developer</h4>
+                  <p class="timeline-org">Assab Vision · remote</p>
+                  <p>Design and development of an HR management SaaS: responsive interfaces from Figma mockups, front-end
+                    logic, REST API integration.</p>
+                  <p class="timeline-tech">React · Next.js · TypeScript · Node.js · Tailwind CSS · PostgreSQL</p>
+                </div>
+              </li>
+              <li class="timeline-item reveal">
+                <span class="timeline-year">2024</span>
+                <div>
+                  <h4>Front-end mobile developer</h4>
+                  <p class="timeline-org">So Beauty Soo</p>
+                  <p>Mobile client-management app: screen design, Firebase back-end integration, testing and release
+                    support.</p>
+                  <p class="timeline-tech">React Native (Expo) · JavaScript · Firebase</p>
+                </div>
+              </li>
+              <li class="timeline-item reveal">
+                <span class="timeline-year">2023</span>
+                <div>
+                  <h4>PHP developer</h4>
+                  <p class="timeline-org">ADEI</p>
+                  <p>Dynamic websites in Symfony, building and maintaining custom WordPress themes.</p>
+                  <p class="timeline-tech">PHP · Symfony · WordPress · MySQL · Bootstrap</p>
+                </div>
+              </li>
+            </ol>
+
+            <h3 class="timeline-head reveal">Education</h3>
+            <ol class="timeline">
+              <li class="timeline-item reveal">
+                <span class="timeline-year">2024</span>
+                <div>
+                  <h4>Application Designer & Developer</h4>
+                  <p class="timeline-org">G2R · Paris</p>
+                  <p>RNCP level 6 professional qualification (bachelor's / master's level)</p>
+                </div>
+              </li>
+              <li class="timeline-item reveal">
+                <span class="timeline-year">2023</span>
+                <div>
+                  <h4>Web & Mobile Web Developer</h4>
+                  <p class="timeline-org">Philiance · Évry</p>
+                  <p>RNCP level 5 professional qualification (two-year higher education)</p>
+                </div>
+              </li>
+              <li class="timeline-item reveal">
+                <span class="timeline-year">2006</span>
+                <div>
+                  <h4>Specialised Educator Diploma</h4>
+                </div>
+              </li>
+              <li class="timeline-item reveal">
+                <span class="timeline-year">2005</span>
+                <div>
+                  <h4>Higher Technician Diploma in Business IT, application developer track</h4>
+                  <p>State diploma, level 5 (two-year higher education)</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="competences" class="section section--tint">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker"><span class="kicker-num">02</span><span>Skills</span></p>
+          <h2 class="section-title">The technologies I use</h2>
+        </header>
+        <div class="skills-layout">
+          <p class="skills-intro reveal">I pick the tool to fit the project: React or Next.js for rich interfaces, PHP
+            and Symfony for the back-end, WordPress when client autonomy matters most.</p>
+          <div class="skills-groups">
+            <div class="skill-group reveal">
+              <h3>Front-end</h3>
+              <ul class="chips">
+                <li>HTML, CSS</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Tailwind CSS</li>
+              </ul>
+            </div>
+            <div class="skill-group reveal">
+              <h3>Back-end</h3>
+              <ul class="chips">
+                <li>PHP</li><li>Symfony</li><li>Zend Framework</li><li>Node.js</li><li>REST APIs</li>
+              </ul>
+            </div>
+            <div class="skill-group reveal">
+              <h3>Mobile</h3>
+              <ul class="chips">
+                <li>React Native (Expo)</li><li>Swift</li>
+              </ul>
+            </div>
+            <div class="skill-group reveal">
+              <h3>Databases</h3>
+              <ul class="chips">
+                <li>MySQL</li><li>MariaDB</li><li>PostgreSQL</li><li>Firebase</li><li>MongoDB</li>
+              </ul>
+            </div>
+            <div class="skill-group reveal">
+              <h3>CMS & design</h3>
+              <ul class="chips">
+                <li>WordPress</li><li>Elementor</li><li>Figma</li>
+              </ul>
+            </div>
+            <div class="skill-group reveal">
+              <h3>Methods & environment</h3>
+              <ul class="chips">
+                <li>Git</li><li>Linux</li><li>Agile (Scrum)</li><li>SEO</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="realisations" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker"><span class="kicker-num">03</span><span>Work</span></p>
+          <h2 class="section-title">Real projects, most of them live to try</h2>
+        </header>
+
+        <div class="projects-grid">
+
+          <article class="project-card reveal">
+            <a href="https://social-erp.vercel.app/" class="project-img-wrap" target="_blank" rel="noopener noreferrer"
+              tabindex="-1" aria-hidden="true">
+              <span class="frame-bar"><i></i><i></i><i></i></span>
+              <img src={`${base}media/projects/socialErp.jpg`} alt="" width="640" height="360" loading="lazy">
+            </a>
+            <div class="project-body">
+              <span class="project-kind">Personal project</span>
+              <h3>Social ERP</h3>
+              <p>Full management application: real-time dashboard, filterable catalogue, Stripe payments, shared
+                scheduling, CSV export and a built-in assistant.</p>
+              <div class="project-tags">
+                <span>Next.js</span><span>TypeScript</span><span>Prisma</span><span>PostgreSQL</span><span>Stripe</span>
+              </div>
+              <div class="project-links">
+                <a href="https://social-erp.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="project-link"><span>Try the app</span><i
+                    class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <a href="https://github.com/Boubacarkonate/socialErp" target="_blank" rel="noopener noreferrer"
+                  class="project-link project-link--muted">Code<i class="fa-brands fa-github" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-cover project-cover--saas" aria-hidden="true">
+              <span class="frame-bar"><i></i><i></i><i></i></span>
+              <div class="cover-app">
+                <div class="cover-side"><b></b><i></i><i></i><i></i><i></i></div>
+                <div class="cover-main">
+                  <div class="cover-top"><i></i><b></b></div>
+                  <div class="cover-kpis"><span></span><span></span><span></span></div>
+                  <div class="cover-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-kind project-kind--pro">Professional project</span>
+              <h3>Assab Vision</h3>
+              <p>HR management SaaS, built as front-end reinforcement for the team: Figma mockups turned into responsive
+                interfaces and payment flows set up.</p>
+              <div class="project-tags">
+                <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Tailwind CSS</span><span>PostgreSQL</span>
+              </div>
+              <p class="project-private"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Private application, not available online.</span></p>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-cover project-cover--mobile" aria-hidden="true">
+              <div class="cover-phone">
+                <div class="cover-phone-top"><b></b><i></i></div>
+                <ul class="cover-list">
+                  <li><span></span><i></i></li>
+                  <li><span></span><i></i></li>
+                  <li><span></span><i></i></li>
+                  <li><span></span><i></i></li>
+                </ul>
+                <div class="cover-phone-btn"></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-kind project-kind--pro">Professional project</span>
+              <h3>So Beauty Soo</h3>
+              <p>Internal mobile app for running a business: bookings, quotes and invoices. Screen design, Firebase
+                back-end integration, testing and release support.</p>
+              <div class="project-tags"><span>React Native</span><span>Expo</span><span>Firebase</span></div>
+              <p class="project-private"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Internal application, not public.</span></p>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a href="https://exemple-blog.vercel.app/" class="project-img-wrap" target="_blank"
+              rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <span class="frame-bar"><i></i><i></i><i></i></span>
+              <img src={`${base}media/projects/travel.jpg`} alt="" width="640" height="360" loading="lazy">
+            </a>
+            <div class="project-body">
+              <span class="project-kind">Personal project</span>
+              <h3>The Travel Blog</h3>
+              <p>Bilingual blog in React and TypeScript: dark mode, installable on mobile, interactive gallery, real-time
+                comments and likes with Firebase.</p>
+              <div class="project-tags">
+                <span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Firebase</span>
+              </div>
+              <div class="project-links">
+                <a href="https://exemple-blog.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="project-link"><span>Visit the site</span><i
+                    class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <a href="https://github.com/Boubacarkonate/exempleBlog" target="_blank" rel="noopener noreferrer"
+                  class="project-link project-link--muted">Code<i class="fa-brands fa-github" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a href="https://coreham.fr/" class="project-img-wrap" target="_blank" rel="noopener noreferrer"
+              tabindex="-1" aria-hidden="true">
+              <span class="frame-bar"><i></i><i></i><i></i></span>
+              <img src={`${base}media/projects/coreaham.jpg`} alt="" width="640" height="360" loading="lazy">
+            </a>
+            <div class="project-body">
+              <span class="project-kind project-kind--client">Client project</span>
+              <h3>Coreham</h3>
+              <p>WordPress showcase site for a Paris cleaning company, built end to end on my own: SEO, contact form,
+                service pages and a bespoke design.</p>
+              <div class="project-tags"><span>WordPress</span><span>PHP</span><span>SEO</span><span>CSS</span></div>
+              <div class="project-links">
+                <a href="https://coreham.fr/" target="_blank" rel="noopener noreferrer" class="project-link"><span>Visit the site</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <a href={`${base}etudes-de-cas/coreham/`} class="project-link project-link--muted"><span>Read the case study</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a href="https://adei-france.fr/" class="project-img-wrap" target="_blank" rel="noopener noreferrer"
+              tabindex="-1" aria-hidden="true">
+              <span class="frame-bar"><i></i><i></i><i></i></span>
+              <img src={`${base}media/projects/adei-france (1).jpg`} alt="" width="640" height="360" loading="lazy">
+            </a>
+            <div class="project-body">
+              <span class="project-kind project-kind--client">Client project</span>
+              <h3>ADEI France</h3>
+              <p>Custom redesign of the WordPress site of a platform matching SMEs with independent IT technicians:
+                rework of the existing site, separate journeys, FAQ, blog and a contact form.</p>
+              <div class="project-tags"><span>WordPress</span><span>Elementor</span><span>Blog</span></div>
+              <div class="project-links">
+                <a href="https://adei-france.fr/" target="_blank" rel="noopener noreferrer" class="project-link"><span>Visit the site</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <a href={`${base}etudes-de-cas/adei-france/`} class="project-link project-link--muted"><span>Read the case study</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a href="https://cssforge-gilt.vercel.app/" class="project-img-wrap" target="_blank"
+              rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <span class="frame-bar"><i></i><i></i><i></i></span>
+              <img src={`${base}media/projects/ccsforge.jpg`} alt="" width="640" height="360" loading="lazy">
+            </a>
+            <div class="project-body">
+              <span class="project-kind project-kind--product">Personal project</span>
+              <h3>CSSForge</h3>
+              <p>Online CSS style generator to save time on integration: live preview, code export and a real-time
+                interface.</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://cssforge-gilt.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="project-link"><span>Try the app</span><i
+                    class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a href={`${base}demos/orvelle/index.html`} class="project-img-wrap" tabindex="-1" aria-hidden="true">
+              <span class="frame-bar"><i></i><i></i><i></i></span>
+              <img src={`${base}media/projects/orvelle.jpg`} alt="" width="640" height="360" loading="lazy">
+            </a>
+            <div class="project-body">
+              <span class="project-kind">Demo</span>
+              <h3>Orvelle, seasonal bistro</h3>
+              <p>Demo site for a fictional restaurant: menu with vegetarian and gluten-free filters, an "open now" status
+                computed in Paris time, and booking with slots per service.</p>
+              <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Accessibility</span></div>
+              <div class="project-links">
+                <a href={`${base}demos/orvelle/index.html`} class="project-link"><span>View the demo</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a href="https://heritage-ebon.vercel.app/" class="project-img-wrap" target="_blank"
+              rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <span class="frame-bar"><i></i><i></i><i></i></span>
+              <img src={`${base}media/projects/heritage.jpg`} alt="" width="640" height="360" loading="lazy">
+            </a>
+            <div class="project-body">
+              <span class="project-kind">Demo</span>
+              <h3>Heritage</h3>
+              <p>Presentation site for an artisanal services company, in HTML, CSS and JavaScript, with a bespoke
+                layout.</p>
+              <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <div class="project-links">
+                <a href="https://heritage-ebon.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="project-link"><span>View the demo</span><i
+                    class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section--dark">
+      <div class="container contact-grid">
+        <div class="contact-intro">
+          <header class="section-head reveal">
+            <p class="kicker"><span class="kicker-num">04</span><span>Contact</span></p>
+            <h2 class="section-title">Let's talk about a role</h2>
+          </header>
+          <p class="contact-text reveal">Hiring a full stack developer? Drop me a line: I reply within one business day.
+            My CV is available to download, and my code is on GitHub.</p>
+          <ul class="contact-list reveal">
+            <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a
+                href="mailto:boubacar.konate@outlook.fr">boubacar.konate@outlook.fr</a></li>
+            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Paris and remote</span></li>
+            <li><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><a
+                href="https://www.linkedin.com/in/boubacar-konaté-a87531261" target="_blank"
+                rel="noopener noreferrer">LinkedIn</a></li>
+            <li><i class="fa-brands fa-github" aria-hidden="true"></i><a href="https://github.com/Boubacarkonate"
+                target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+
+        <div class="contact-cta-card reveal">
+          <h3>Ready to talk</h3>
+          <p>The easiest way: an email with the role and a few lines about the team. I'll get back to you quickly, with
+            my availability.</p>
+          <div class="contact-cta-actions">
+            <a href="mailto:boubacar.konate@outlook.fr" class="btn btn-accent"><span>Email me</span><i
+                class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
+            <a href={`${base}media/cv.pdf`} target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i
+                class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>My CV</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</Layout>
