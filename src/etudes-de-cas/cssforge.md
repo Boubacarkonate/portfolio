@@ -5,7 +5,7 @@ date: 2026-10-03
 type: "Projet personnel (apprentissage)"
 role: "Conception et développement (solo)"
 secteur: "Outil / front-end"
-techno: ["HTML", "CSS", "JavaScript"]
+techno: ["HTML", "CSS", "JavaScript", "Lemon Squeezy"]
 url: "https://cssforge-gilt.vercel.app/"
 urlLabel: "cssforge-gilt.vercel.app"
 resultat: "Outil en ligne fonctionnel, testable"
@@ -19,14 +19,16 @@ Un **projet personnel** pour renforcer les **fondamentaux du web** — HTML, CSS
 
 - **prévisualisation en direct** du rendu ;
 - **génération et export** du code CSS ;
-- interface **temps réel**.
+- interface **temps réel** ;
+- **déblocage de fonctionnalités premium** via un paiement (Lemon Squeezy, en **mode test**).
 
 ## Les choix techniques
 
 - **JavaScript « vanilla »** (sans framework) : volontaire, pour travailler en profondeur la manipulation du **DOM**, la gestion des **événements** et la **génération dynamique** de styles.
+- **Lemon Squeezy** : pour apprendre l'intégration d'un **paiement / checkout** et le déblocage de fonctionnalités premium — configuré en **mode test**.
 
 ## Ce que le projet démontre
 
-Une bonne maîtrise des **bases du web sans framework**, la manipulation du DOM, et le sens du détail sur l'interface.
+Une bonne maîtrise des **bases du web sans framework**, la manipulation du DOM, le sens du détail sur l'interface, et une **première intégration de paiement** (Lemon Squeezy).
 
 > Le code de ce projet est privé : seule la démo en ligne est accessible.
