@@ -1080,14 +1080,14 @@ html.js .project-filters {
   box-shadow: var(--shadow-lg);
 }
 
-/* API : mini-terminal illustré (requête + réponse JSON).
-   Boîte 16/9 stricte, identique aux images des autres cartes. */
-.project-cover--api {
+/* API : mini-terminal illustré. Comme les images : frame-bar + zone 16/9. */
+.project-cover--api .cover-term {
   position: relative;
   aspect-ratio: 16 / 9;
   background: #1f2430;
+  overflow: hidden;
 }
-.cover-term {
+.cover-term-code {
   position: absolute;
   inset: 0;
   display: flex;
@@ -1095,15 +1095,14 @@ html.js .project-filters {
   justify-content: center;
   gap: 0.6rem;
   padding: clamp(0.9rem, 3vw, 1.5rem);
-  overflow: hidden;
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: clamp(0.72rem, 1.7vw, 0.92rem);
   line-height: 1.5;
 }
-.cover-term .t-cmd { color: #e6e1d6; }
-.cover-term .t-verb { color: #e8805f; font-weight: 700; }
-.cover-term .t-status { color: #8fcf9f; }
-.cover-term .t-json { color: #b9ad9e; word-break: break-all; }
+.cover-term-code .t-cmd { color: #e6e1d6; }
+.cover-term-code .t-verb { color: #e8805f; font-weight: 700; }
+.cover-term-code .t-status { color: #8fcf9f; }
+.cover-term-code .t-json { color: #b9ad9e; word-break: break-all; }
 
 /* SaaS : tableau de bord stylisé */
 .cover-app {
