@@ -1,12 +1,12 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../../layouts/Layout.astro';
 
 // Glob pour le rendu du composant (disponible à l'évaluation du module).
-const studies = import.meta.glob('../../etudes-de-cas/*.md', { eager: true });
+const studies = import.meta.glob('../../../etudes-de-cas/en/*.md', { eager: true });
 
 export function getStaticPaths() {
   // getStaticPaths est extrait par Astro : il doit être autonome (glob interne).
-  const all = import.meta.glob('../../etudes-de-cas/*.md', { eager: true });
+  const all = import.meta.glob('../../../etudes-de-cas/en/*.md', { eager: true });
   return Object.keys(all).map((path) => ({ params: { slug: path.split('/').pop().replace('.md', '') } }));
 }
 
@@ -16,7 +16,7 @@ const entry = Object.entries(studies).find(([path]) => path.endsWith(`/${slug}.m
 const study = entry[1];
 const { Content, frontmatter } = study;
 
-const title = `${frontmatter.title} | Étude de cas — Boubacar Konaté`;
+const title = `${frontmatter.title} | Case study — Boubacar Konaté`;
 const description = frontmatter.description;
 const dateISO = new Date(frontmatter.date).toISOString();
 const jsonLd = JSON.stringify({
@@ -29,27 +29,27 @@ const jsonLd = JSON.stringify({
 });
 ---
 
-<Layout title={title} description={description} lang="fr">
+<Layout title={title} description={description} lang="en">
   <script type="application/ld+json" slot="head" set:html={jsonLd} />
   <article class="article">
     <div class="container article-inner">
-      <p class="article-back"><a href={`${base}etudes-de-cas/`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Toutes les études de cas</a></p>
-      <p class="kicker"><span class="kicker-num">★</span><span>Étude de cas</span></p>
+      <p class="article-back"><a href={`${base}en/etudes-de-cas/`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> All case studies</a></p>
+      <p class="kicker"><span class="kicker-num">★</span><span>Case study</span></p>
       <h1>{frontmatter.title}</h1>
       <dl class="case-facts">
         <div><dt>Client</dt><dd>{frontmatter.client}</dd></div>
-        <div><dt>Secteur</dt><dd>{frontmatter.secteur}</dd></div>
-        <div><dt>Prestation</dt><dd>{frontmatter.prestation}</dd></div>
+        <div><dt>Sector</dt><dd>{frontmatter.secteur}</dd></div>
+        <div><dt>Service</dt><dd>{frontmatter.prestation}</dd></div>
         <div><dt>Technologies</dt><dd>{frontmatter.techno.join(', ')}</dd></div>
-        {frontmatter.resultat && <div><dt>Résultat</dt><dd>{frontmatter.resultat}</dd></div>}
+        {frontmatter.resultat && <div><dt>Result</dt><dd>{frontmatter.resultat}</dd></div>}
       </dl>
       {frontmatter.url && (
-        <p class="case-link"><a href={frontmatter.url} class="btn btn-ghost" target="_blank" rel="noopener noreferrer"><span>Voir le site ({frontmatter.urlLabel})</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>
+        <p class="case-link"><a href={frontmatter.url} class="btn btn-ghost" target="_blank" rel="noopener noreferrer"><span>Visit the site ({frontmatter.urlLabel})</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>
       )}
       <div class="article-body">
         <Content />
       </div>
-      <p class="article-cta"><a href={`${base}#contact`} class="btn btn-accent">Me contacter <i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a></p>
+      <p class="article-cta"><a href={`${base}en/#contact`} class="btn btn-accent">Get in touch <i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a></p>
     </div>
   </article>
 </Layout>
