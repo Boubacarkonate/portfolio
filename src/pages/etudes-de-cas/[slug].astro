@@ -37,14 +37,19 @@ const jsonLd = JSON.stringify({
       <p class="kicker"><span class="kicker-num">★</span><span>Étude de cas</span></p>
       <h1>{frontmatter.title}</h1>
       <dl class="case-facts">
-        <div><dt>Client</dt><dd>{frontmatter.client}</dd></div>
-        <div><dt>Secteur</dt><dd>{frontmatter.secteur}</dd></div>
-        <div><dt>Prestation</dt><dd>{frontmatter.prestation}</dd></div>
+        {frontmatter.client && <div><dt>Client</dt><dd>{frontmatter.client}</dd></div>}
+        {frontmatter.type && <div><dt>Type</dt><dd>{frontmatter.type}</dd></div>}
+        {frontmatter.client && frontmatter.secteur && <div><dt>Secteur</dt><dd>{frontmatter.secteur}</dd></div>}
+        {frontmatter.role && <div><dt>Rôle</dt><dd>{frontmatter.role}</dd></div>}
+        {frontmatter.prestation && <div><dt>Prestation</dt><dd>{frontmatter.prestation}</dd></div>}
         <div><dt>Technologies</dt><dd>{frontmatter.techno.join(', ')}</dd></div>
         {frontmatter.resultat && <div><dt>Résultat</dt><dd>{frontmatter.resultat}</dd></div>}
       </dl>
-      {frontmatter.url && (
-        <p class="case-link"><a href={frontmatter.url} class="btn btn-ghost" target="_blank" rel="noopener noreferrer"><span>Voir le site ({frontmatter.urlLabel})</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></p>
+      {(frontmatter.url || frontmatter.repo) && (
+        <p class="case-link">
+          {frontmatter.url && <a href={frontmatter.url} class="btn btn-ghost" target="_blank" rel="noopener noreferrer"><span>Voir le site ({frontmatter.urlLabel})</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>}
+          {frontmatter.repo && <a href={frontmatter.repo} class="btn btn-ghost" target="_blank" rel="noopener noreferrer"><span>Voir le code</span><i class="fa-brands fa-github" aria-hidden="true"></i></a>}
+        </p>
       )}
       <div class="article-body">
         <Content />
